@@ -1,0 +1,14 @@
+asr-server
+Copyright 2026 AI为什么100 (https://aiwhy100.com)
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party components (not bundled in this repository, installed or downloaded at runtime):
+
+- sherpa-onnx (https://github.com/k2-fsa/sherpa-onnx), Apache License 2.0.
+- SenseVoice model (https://github.com/FunAudioLLM/SenseVoice), exported to ONNX by the
+  sherpa-onnx project. The model is downloaded from the sherpa-onnx releases by
+  scripts/download-model.sh and is subject to its own model license; please read it
+  before commercial use.
+- opusscript (https://github.com/abalabahaha/opusscript), MIT License; libopus, BSD License.
+- Fastify and @fastify/websocket (https://fastify.dev), MIT License.

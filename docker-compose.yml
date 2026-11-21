@@ -1,0 +1,23 @@
+# docker compose up -d
+# 首次启动会下载约 230 MB 模型（docker compose logs -f 看进度），之后保存在 models 卷里。
+services:
+  asr:
+    build: .
+    image: asr-server
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    environment:
+      # 访问令牌，逗号分隔。放到公网上一定要设；只在局域网用可以留空
+      ASR_TOKENS: ${ASR_TOKENS:-}
+      ASR_THREADS: ${ASR_THREADS:-2}
+      ASR_MAX_SESSIONS: ${ASR_MAX_SESSIONS:-20}
+      # 国内下载 GitHub 慢时换成镜像地址（同一个 tar.bz2）
+      ASR_MODEL_URL: ${ASR_MODEL_URL:-}
+    volumes:
+      - models:/models
+    # 模型常驻约 600 MB 内存
+    mem_limit: 1500m
+
+volumes:
+  models:

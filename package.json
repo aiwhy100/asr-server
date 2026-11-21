@@ -1,0 +1,26 @@
+{
+  "name": "asr-server",
+  "version": "1.0.0",
+  "description": "离线中文语音识别服务（sherpa-onnx + SenseVoice）：按住说话边说边出字，专为孩子提问「为什么」调过。AI为什么100 同款。",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "src/server.js",
+  "bin": { "asr-server": "src/server.js" },
+  "scripts": {
+    "start": "node src/server.js",
+    "download-model": "sh scripts/download-model.sh",
+    "test": "node --test test/asr.test.js"
+  },
+  "dependencies": {
+    "@fastify/websocket": "11.3.7",
+    "fastify": "^5.6.0",
+    "opusscript": "0.1.1",
+    "sherpa-onnx-node": "2.0.1"
+  },
+  "devDependencies": {
+    "ws": "^8.18.0"
+  },
+  "engines": { "node": ">=20" },
+  "repository": { "type": "git", "url": "https://github.com/aiwhy100/asr-server.git" },
+  "keywords": ["asr", "speech-recognition", "sherpa-onnx", "sensevoice", "chinese", "esp32", "websocket", "offline"]
+}
